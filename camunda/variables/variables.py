@@ -26,9 +26,9 @@ class Variables:
         formatted_vars = {}
         if variables:
             for i in variables.keys():
-                if type(variables[i]) in [bool, int, float, str]:
+                if type(variables[i]) in [bool, int, float, str, type(None)]:
                     formatted_vars[i] = {"value": variables[i]}
-                elif type(variables[i]) == dict and "value" in variables[i] and type(variables[i]['value']) in [bool, int, float, str]:
+                elif type(variables[i]) == dict and "value" in variables[i] and type(variables[i]['value']) in [bool, int, float, str, type(None)]:
                     formatted_vars[i] = variables[i]
                 else:
                     formatted_vars[i] = {"value": json.dumps(variables[i]), "type": "json"}
