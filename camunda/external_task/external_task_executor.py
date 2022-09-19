@@ -85,4 +85,4 @@ class ExternalTaskExecutor:
 
     def _log_with_context(self, msg, task_id=None, log_level='info', **kwargs):
         context = {"WORKER_ID": self.worker_id, "TASK_ID": task_id}
-        log_with_context(msg, context=context, log_level=log_level, **kwargs)
+        log_with_context(msg, context=context, log_level=log_level, logger_handler=logger, **kwargs)
