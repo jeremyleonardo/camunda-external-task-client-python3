@@ -79,7 +79,7 @@ class ExternalTaskWorker:
 
     def _log_with_context(self, msg, topic=None, task_id=None, log_level='info', **kwargs):
         context = {"WORKER_ID": str(self.worker_id), "TOPIC": topic, "TASK_ID": task_id}
-        log_with_context(msg, context=context, log_level=log_level, **kwargs)
+        log_with_context(msg, context=context, log_level=log_level,  logger_handler=logger, **kwargs)
 
     def _get_sleep_seconds(self):
         return self.config.get("sleepSeconds", self.DEFAULT_SLEEP_SECONDS)
